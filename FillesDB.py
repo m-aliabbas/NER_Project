@@ -21,6 +21,7 @@ class FilesDB:
         text = self.word_processor.get_text(path=file_path)
         self.in_text = text
         attributes = self.info_extractor.get_attributes(text=text)
+        # print('Here attributes will go : \n',attributes)
         attributes['file_name'] = os.path.basename(file_path)
         return file_name, attributes
 
@@ -41,6 +42,7 @@ class FilesDB:
         self.attributes[key] = values
 
         return self.make_csv(data=temp_data)
+    
     def make_csv(self,data=None,outpath=''):
         df = pd.DataFrame(data)
         self.df = df

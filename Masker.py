@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from FillesDB import FilesDB
 from WordProcessor import WordProcessor
+from utils.utils import *
 
 class Masker(object):
     
@@ -47,17 +48,25 @@ class Masker(object):
             
     def __get_mask(self):
         text = self.input_txt
+        print(self.attributes_df)
         row_index = self.__find_row()
+        # print(self.enum_db)
+        # print(self.attributes_df)
         for attbr in self.columns:
-            value = str(self.attributes_df[attbr][row_index])
-            if 'Name' in attbr:
-                enum = self.enum_db[attbr]
+            if 'Unnamed' in attbr or 'file_' in attbr:
+                continue
+            value = self.attributes_df[attbr][row_index]
+            
+            # if 'Name' in attbr:
+            #     enum = self.enum_db[attbr]
+            #     temp_mask = self.masking_text+':'+str(enum)
+            #     text = text.replace(value,temp_mask)
+            # if attbr in self.input_txt:
+            enum = self.enum_db[attbr]
+            # print(attbr,value,enum)
+            if (not pd.isna(value)):
                 temp_mask = self.masking_text+':'+str(enum)
-                text = text.replace(value,temp_mask)
-            if attbr in self.input_txt:
-                enum = self.enum_db[attbr]
-                temp_mask = self.masking_text+':'+str(enum)
-                text = text.replace(value,temp_mask)
+                text = replace_specific(text,value,temp_mask)
         self.output_txt = text
        
 
