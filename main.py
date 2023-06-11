@@ -3,6 +3,7 @@ from Driver import Driver
 import os
 from utils.const import INPUT_PATH
 from utils.utils import get_random_text
+import pandas as pd
 
 header = st.container()
 main = st.container()
@@ -29,14 +30,17 @@ class GUI(object):
                 st.title('AI based DataExtraction and Encryption')
             with c:
                 st.image('waspak.jpg',width=200)
+
     def mask_contents(self):
         msk_txt = st.text_input(label='Please Enter Masking Text')
+        # print(st.session_state['file_name'])
         if not msk_txt:
             msk_txt = get_random_text()
         st.session_state.mask_txt=msk_txt
+
     def make_body(self):
         
-        self.mask_contents()
+        # self.mask_contents()
         btn = st.button('Extract Data and Mask')
         tab1, tab2 , tab3= st.tabs(["Attributes", "Contents","Mask Contents"])
         if btn:
@@ -58,6 +62,17 @@ class GUI(object):
         if uploaded_file:
             
             st.session_state.file_name = INPUT_PATH+uploaded_file.name
+            file_name = os.path.basename(uploaded_file.name).split('.')[0]
+            first_name , second_name = file_name.split(' ')[0],file_name.split(' ')[1]
+            # print(first_name,second_name)
+            try:
+                df11 = pd.read_csv('/home/ali/Desktop/waspak.co/NER_Project/data.csv')
+                msk_txt=df11[df11['First Name'].str.contains(first_name)  & df11['Last Name'].str.contains(second_name)]['Ethereum address'][0]
+                st.session_state.mask_txt=msk_txt
+            
+            except:
+                st.session_state.mask_txt = get_random_text()
+
             if not os.path.exists('output'):
                 os.mkdir('output')
             st.session_state.out_file_name = 'output/'+uploaded_file.name

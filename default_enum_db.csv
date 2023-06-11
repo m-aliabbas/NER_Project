@@ -1,0 +1,73 @@
+ID Number,Data
+1,First Name
+2,Middle Name
+3,Last Name
+4,Suffix
+5,Salutation
+6,Mobile Phone Number
+7,Phone Number
+8,Date of Birth
+9,Place of Birth
+10,Country of Birth
+11,Mother’s Maiden Name
+12,Nationality
+13,Passport Number
+14,Passport Authority
+15,Passport Issue Date
+16,Passport Expiry Date
+17,Driver’s License Number
+18,Driver’s License Expiry Date
+19,Social Security Number / National Insurance Number
+20,Home Address
+21,Home Address Line 2
+22,Home Address
+23,Home Address City
+24,Home Address Zip / Postcode
+25,Home Address County
+26,Home Address State
+27,Work Company Name
+28,Work Job Title
+29,Work Start Date
+30,Work Email Address
+31,Work Telephone Number
+32,Work Address Line 1
+33,Work Address Line 2
+34,Work Address Town
+35,Work Address City
+36,Work Address County
+37,Work Address State
+38,Work Address Zip / Postcode
+39,Work Address Country
+40,Health Security Number (NHS for the UK)
+41,TAX ID
+42,State Identification Number
+43,Bank Account Name 1
+44,Bank Account Number 1
+45,Bank Account Sort Code 1
+46,Bank Account Routing number 1
+47,Next of Kin Name
+48,Next of Kin Relationship
+49,Next of Kin Contact Number
+50,Race
+51,Religion
+52,Sex at Birth
+53,Sex Now
+54,Pronouns
+55,Eye Colour
+56,DNA File
+57,Doctors Name
+58,Doctors Address 1
+59,Doctors Address 2
+60,Doctors Address Town
+61,Doctors Address ZIP / Postcode
+62,Bitcoin Address
+63,Ethereum Address
+64,Facebook
+65,Instagram
+66,Twitter
+67,Company Name
+68,Company Contact Name
+69,Company VAT  / TAX ID
+70,Company Registration ID
+71,DUNS ID
+72,SIC Code

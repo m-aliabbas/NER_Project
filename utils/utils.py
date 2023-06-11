@@ -8,7 +8,14 @@ def get_random_text():
 def replace_specific(actual_string,info,replacement_text):
     # if type(info) == "<class 'str'>":
     #     info = eval(info)
-    info = eval(info)
+    try:
+        info = eval(info)
+    except:
+        value = info
+        info = {}
+        info['value']=value
+        info['start_index']=0
+        info['end_index']=0
     # print(type(info))
     # print(info['value'])
     # print(type(info['start_index']))
