@@ -1,2 +1,2 @@
-API_KEY = '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'
+API_KEY = ''
 INPUT_PATH = 'test/'
